@@ -48,7 +48,7 @@ exports.handler = async function (event, context) {
         if (err.response) {
             return {
                 statusCode: 400,
-                body: response.data
+                body: err.response.data
             }
         } else {
             return {
