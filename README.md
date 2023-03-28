@@ -1,2 +1,3 @@
-# chatbot
-Chat bot driven by AI.
+# Chat Bot
+
+Chat bot driven by Chat-GPT.
