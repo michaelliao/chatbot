@@ -85,6 +85,9 @@
     <script>
 
         $(function () {
+            window._CHAT_BOT_LOADED = function () {
+                window._CHAT_BOT.init();
+            }
             let s = document.createElement('script');
             s.type = 'text/javascript';
             s.async = true;

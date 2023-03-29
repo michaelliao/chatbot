@@ -91,5 +91,9 @@
         }, 1000 * parseInt(5 + Math.random() * 5));
     };
 
-    window._CHAT_BOT.init();
+    try {
+        window._CHAT_BOT_LOADED();
+    } catch (err) {
+        console.error(err);
+    }
 })();
