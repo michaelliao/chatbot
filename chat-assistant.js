@@ -83,7 +83,7 @@
         window._CHAT_BOT.$bot.find('button.x-chat-end').click(() => { window._CHAT_BOT.$bot.hide() });
         window._CHAT_BOT.$ask = window._CHAT_BOT.$bot.find('button.x-chat-ask');
         window._CHAT_BOT.$ask.click(do_ask);
-        print_dialog('你好，我是一名人工智能助手，如果你在学习中遇到问题可以直接问我。', true);
+        print_dialog('你好，我是一名人工智能助教，如果你在学习中遇到问题可以直接问我。', true);
         let $eye = window._CHAT_BOT.$bot.find('div.x-robot-assistant-eyes');
         // blink:
         setInterval(function () {
