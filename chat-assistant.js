@@ -73,8 +73,11 @@
     }
 
     window._CHAT_BOT.init = function () {
+        let html = $('#chatbot-template').html();
+        html = html.replace('$IMAGE_URL', window._CHAT_BOT.userImageUrl());
+        html = html.replace('$IMAGE_URL', window._CHAT_BOT.userImageUrl());
         $('ins.adsbygoogle[data-anchor-shown=true]').hide();
-        $('body').append($('#chatbot-template').html().replace('$IMAGE_URL', window._CHAT_BOT.userImageUrl()));
+        $('body').append(html);
         $('#chatbot-template').remove();
         window._CHAT_BOT.$bot = $('div.x-chat-bot');
         window._CHAT_BOT.$bot.find('button.x-chat-end').click(() => { window._CHAT_BOT.$bot.hide() });
