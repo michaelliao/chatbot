@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Embeded Chatbot">
+
+    <title>Chat Bot</title>
+    <link id="linkFavicon" rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@2.27.4/dist/css/uikit.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@2.27.4/dist/css/uikit.almost-flat.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@3.0.8/marked.min.js"></script>
+
+    <script id="chatbot-template" type="text/template">
+        <div class="x-chat-bot" style="display:block; position:fixed; z-index:999; right:0; bottom:0px; font-size:14px; width:560px; height:500px;">
+            <div class="x-chat-panel"
+                style="width:360px; position:relative; background-color:#fafafa; border:1px solid #e5e5e5; border-radius:4px;">
+                <div style="position:absolute; width:150px; height:300px; left:380px; top:300px">
+                    <div class="x-robot-assitant" style="position:relative">
+                        <div class="x-robot-assistant-layer-0"
+                            style="width:150px; height:300px; position:absolute; left:0; top:0; background-position: 0 -160px; background-image:url(https://chat.itranswarp.com/chat-assistant.png)">
+                        </div>
+                        <div class="x-robot-assistant-eyes"
+                            style="width:150px; height:80px; position:absolute; left:0; top:0; display:none; background-image:url(https://chat.itranswarp.com/chat-assistant.png)">
+                        </div>
+                        <div class="x-robot-assistant-mouth"
+                            style="width:150px; height:80px; position:absolute; left:0; top:0; display:none; background-position: 0 -80px; background-image:url(https://chat.itranswarp.com/chat-assistant.png)">
+                        </div>
+                    </div>
+                </div>
+                <div class="x-chat-history" style="height:320px; overflow-y:scroll; padding:15px;">
+                    <div class="x-chat-robot" style="display:none">
+                        <div style="position:relative; min-height:50px;">
+                            <div class="x-user-avatar" style="position:absolute; left:0; top:0;">
+                                <div
+                                    style="width:30px; height:30px; border:1px solid #ddd; border-radius:50%; background-image:url(https://chat.itranswarp.com/chat-assistant.png); background-size:50px auto; background-position:-12px -53px;">
+                                </div>
+                            </div>
+                            <div class="x-chat-content" style="margin-left:40px;">
+                                $CONTENT
+                            </div>
+                        </div>
+                    </div>
+                    <div class="x-chat-user" style="display:none">
+                        <div style="position:relative; min-height:50px;">
+                            <div class="x-user-avatar" style="position:absolute; left:0; top:0;">
+                                <div
+                                    style="width:30px; height:30px; border:1px solid #ddd; border-radius:50%; background-size:cover; background-image:url($IMAGE_URL)">
+                                </div>
+                            </div>
+                            <div class="x-chat-content" style="margin-left:40px;">
+                                $CONTENT
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="border-top:1px solid #e5e5e5; padding:15px;">
+                    <div class="x-chat-input" style="position:relative;">
+                        <div class="x-user-avatar" style="position:absolute; left:0; top:0;">
+                            <div
+                                style="width:30px; height:30px; border:1px solid #ddd; border-radius:50%; background-size:cover; background-image:url($IMAGE_URL)">
+                            </div>
+                        </div>
+                        <form onsubmit="return false" class="uk-form" style="margin-left:45px; width:280px;">
+                            <div class="uk-form-row">
+                                <textarea rows="3" placeholder="在这里输入你的问题" class="x-chat-input"
+                                    style="width:100%; resize:none;"></textarea>
+                            </div>
+                            <div class="uk-form-row">
+                                <button type="button"
+                                    class="x-chat-ask uk-button uk-button-small uk-button-primary">提问</button>
+                                <button type="button" class="x-chat-end uk-button uk-button-small">不聊了</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script>
+
+        $(function () {
+            let s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'chat-assistant.js';
+            $('head').append(s);
+        });
+
+    </script>
+</head>
+
+<body>
+    <div style="padding: 20px">
+        <h1>Chatbot Demo</h1>
+        <p><a target="_blank" href="https://github.com/michaelliao/chatbot">Github <i
+                    class="uk-icon-external-link"></i></a>
+        </p>
+    </div>
+</body>
+
+</html>
