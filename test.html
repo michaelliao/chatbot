@@ -53,6 +53,14 @@
     <script>
         window.OPENAI_URL = 'https://api.openai.com/v1/chat/completions';
 
+        function loadSetting(key) {
+            return localStorage.getItem(key) || '';
+        }
+
+        function saveSetting(key, value) {
+            localStorage.setItem(key, value);
+        }
+
         function appendChat(type, text, error = false) {
             let $chats = $('#chats');
             $chats.append('<div class="x-chat"><img class="x-chat-img"><div class="x-chat-content"></div></div>');
@@ -111,6 +119,10 @@
             btn.attr('disabled', 'disabled');
             $('#content').val('');
             appendChat('user', content);
+
+            saveSetting('__prompt__', prompt);
+            saveSetting('__openai_token__', openai_token);
+
             postAPI(openai_token, requestData)
                 .then(responseData => {
                     if (responseData && responseData.error) {
@@ -136,6 +148,11 @@
             let m = new bootstrap.Modal('#alert');
             m.show();
         }
+
+        $(function () {
+            $('#prompt').val(loadSetting('__prompt__'));
+            $('#openai_token').val(loadSetting('__openai_token__'));
+        });
     </script>
 </head>
 
@@ -188,7 +205,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="prompt" class="form-label">Prompt:</label>
-                                <input class="form-control" id="prompt" value="You are an experenced teacher.">
+                                <input class="form-control" id="prompt">
                                 <div id="promptHelp" class="form-text">Optional prompt for ChatGPT.</div>
                             </div>
                             <div class="mb-3">
